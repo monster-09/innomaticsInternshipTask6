@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Expense Tracker</h1>
+        
+        <div class="form-group">
+            <label for="income-amount">Add Income:</label>
+            <input type="number" id="income-amount" placeholder="Enter Income Amount" required>
+            <label for="income-description">Description:</label>
+            <input type="text" id="income-description" placeholder="Enter Income Description">
+            <button id="add-income-btn">Add Income</button>
+        </div>
+        <div id="error-message" style="color: red; display: none; text-align: center;"></div>
+
+        <div class="form-group">
+            <label for="expense-category">Expense Category:</label>
+            <select id="expense-category" required>
+                <option value="">Select Category</option>
+                <option value="Food">Food</option>
+                <option value="Transport">Transport</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Utilities">Utilities</option>
+                <option value="Health">Health</option>
+                <option value="Other">Other</option>
+            </select>
+            <label for="expense-amount">Expense Amount:</label>
+            <input type="number" id="expense-amount" placeholder="Enter Expense Amount" required>
+            <label for="expense-description">Description:</label>
+            <input type="text" id="expense-description" placeholder="Enter Expense Description">
+            <label for="expense-date">Expense Date:</label>
+            <input type="date" id="expense-date" required>
+            <button id="add-expense-btn">Add Expense</button>
+            <button id="reset-btn">Reset Budget</button> <!-- Reset button added -->
+        </div>
+
+        <div class="summary">
+            <h2>Total Income: <span id="total-income">₹0</span></h2>
+            <h2>Total Expenses: <span id="total-expenses">₹0</span></h2>
+        </div>
+
+        <h2>Expenses List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="expenses-body">
+                <!-- Expense entries will be dynamically added here -->
+            </tbody>
+        </table>
+        
+
+        <canvas id="expense-chart" width="400" height="200"></canvas>
+        <canvas id="income-chart" width="400" height="200"></canvas>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
